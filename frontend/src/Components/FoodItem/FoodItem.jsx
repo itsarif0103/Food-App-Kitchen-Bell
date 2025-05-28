@@ -4,11 +4,11 @@ import { assets } from '../../assets/frontend_assets/assets'
 import { storeContext } from '../../Context/StoreContext';
 
 const FoodItem = ({id, name, price, description, image}) => {
-    const {cartItems, removeFromCart, addToCart} = useContext(storeContext);
+    const {cartItems, removeFromCart, addToCart, url} = useContext(storeContext);
   return (
     <div className='food-item'>
       <div className="food-item-image-container">
-        <img src={image} alt={name} className='food-item-image' />
+        <img src={url + "/images/"+image} alt={name} className='food-item-image' />
         {!cartItems[id] ? <img src={assets.add_icon_white} alt="" className='food-item-add-icon' onClick={()=> addToCart(id)} /> : <div className="food-item-count">
                 <img src={assets.remove_icon_red} alt="" onClick={()=> removeFromCart(id)} />
                 <p>{cartItems[id]}</p>
