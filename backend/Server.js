@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import { connectDB } from "./Config/db.js";
 import foodRouter from "./Routes/FoodRoute.js";
+import userRouter from "./Routes/UserRoute.js"; 
+import 'dotenv/config'; // Ensure environment variables are loaded
 
 // App Configuration
 const app = express();
@@ -17,6 +19,7 @@ connectDB();
 //API endpoints
 app.use("/api/food", foodRouter);
 app.use("/images", express.static("Uploads"));
+app.use("/api/user", userRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Hello Backend");
