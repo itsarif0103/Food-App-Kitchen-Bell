@@ -4,6 +4,7 @@ import { connectDB } from "./Config/db.js";
 import foodRouter from "./Routes/FoodRoute.js";
 import userRouter from "./Routes/UserRoute.js"; 
 import 'dotenv/config'; // Ensure environment variables are loaded
+import cartRouter from "./Routes/CartRoute.js";
 
 // App Configuration
 const app = express();
@@ -20,6 +21,7 @@ connectDB();
 app.use("/api/food", foodRouter);
 app.use("/images", express.static("Uploads"));
 app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Hello Backend");
