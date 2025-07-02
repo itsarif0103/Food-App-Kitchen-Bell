@@ -6,6 +6,7 @@ import PlaceOrder from './Pages/PlaceOrder/PlaceOrder'
 import { Route, Routes } from 'react-router-dom'
 import Footer from './Components/Footer/Footer'
 import LoginPopup from './Components/LoginPopup/LoginPopup'
+import Verify from './Pages/Verify/Verify'
 
 const App = () => {
   const [showLogin, setShowLogin] = React.useState(false)
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/placeorder' element={<PlaceOrder />} />
+        <Route path='/verify' element={<Verify />} />
       </Routes>
     </div>
     <Footer />
